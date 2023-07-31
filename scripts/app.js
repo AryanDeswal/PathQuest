@@ -45,10 +45,6 @@ window.addEventListener("load", () => {
 		window.open("https://github.com/AryanDeswal/PathQuest");
 	});
 
-	myGitLink.addEventListener("click", () => {
-		window.open("https://github.com/AryanDeswal");
-	});
-
 	const enableBtnAndGrid = () => {
 		selectAlgorithm.disabled = false;
 		visualizeBtn.disabled = false;
