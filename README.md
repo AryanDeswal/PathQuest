@@ -1,4 +1,4 @@
-# PathQuest
+# PathQuest 
 ## Overview
 PathQuest is a dynamic website designed to visualize prominent path-finding algorithms such as Breadth-First Search (BFS), Depth-First Search (DFS), and A*, providing users with an interactive platform for understanding and comparing these algorithms in real-time. Leveraging HTML5, CSS, and JavaScript, PathQuest offers an educational experience in algorithmic exploration.
 
