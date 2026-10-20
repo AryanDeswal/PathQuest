@@ -24,8 +24,9 @@
 			</div>
 			<div class="buttonContainer">
 				<div class="selectionBox">
-					<h3 class="selectionBoxTitle">Choose Algorithm </h3>
+					<h3 class="selectionBoxTitle">Choose Algorithm</h3>
 					<select name="algorithm" class="algorithm">
+						<option value="" disabled selected hidden>Select...</option>
 						<option value="Dijkstra">Dijkstra</option>
 						<option value="Astar">Astar</option>
 						<option value="BFS">BFS</option>
@@ -47,8 +48,10 @@
 					<p class="message">Select any algorithm to visualize</p>
 				</div>
 				<div class="mainbody">
-					<canvas id="grid-layer"></canvas>
-					<canvas id="grid"> </canvas>
+					<div class="gridWrapper">
+						<canvas id="grid-layer"></canvas>
+						<canvas id="grid"></canvas>
+					</div>
 				</div>
 			</div>
 			<div class="instructionBar">
@@ -66,7 +69,7 @@
 					<p>Click and drag left mouse button to add wall nodes</p>
 				</div>
 				<div class="mouseInstruction">
-					<img src="./media/images/Middle-Click-icon.jpg" alt="Left-Click-icon" />
+					<img src="./media/images/Middle-Click-icon.jpg" alt="Middle-Click-icon" />
 					<p>Click and drag middle mouse button to remove wall nodes</p>
 				</div>
 				<div class="colorr">
@@ -92,7 +95,7 @@
 					</div>
 					<div class="nodeInstruction">
 						<div class="box" id="visited"></div>
-						<p>VIsited Node</p>
+						<p>Visited Node</p>
 					</div>
 					<div class="nodeInstruction">
 						<div class="box" id="notVisited"></div>

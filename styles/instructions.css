@@ -1,23 +1,26 @@
 .main {
-	padding: 10px 10px 10px 10px;
+	padding: 10px;
 	display: flex;
+	gap: 10px;
+	align-items: stretch;
 }
 
 .instplusmain {
 	display: flex;
-	padding-left: 10px;
-	border: 100px;
-	width: 100%;
+	gap: 10px;
+	flex: 1;
+	min-width: 0;
+}
+
+.messageplusmain {
+	flex: 1;
+	min-width: 0;
+	border: solid 3px turquoise;
 }
 
 .instructionBar {
-	width: 25%;
-	margin-left: 10px;
-	margin-right: 10px;
-	border-style: solid;
-	border-width: 4px;
+	flex: 0 0 280px;
 	padding: 10px;
-
 	background-color: rgb(37, 37, 37);
 	border: solid 3px turquoise;
 }
@@ -35,18 +38,8 @@
 
 .colorr {
 	margin-top: 10px;
-	width: auto;
-	/* background-color: blue; */
-	border-style: dotted;
-	border-color: turquoise;
-	border-width: 2px;
-	padding-left: 5px;
-	padding-bottom: 5px;
-}
-
-.messageplusmain {
-	width: 75%;
-	border: solid 3px turquoise;
+	border: dotted 2px turquoise;
+	padding: 0 5px 8px;
 }
 
 .message {
@@ -54,7 +47,6 @@
 	font-weight: bold;
 	width: 100%;
 	text-align: center;
-
 }
 
 .message p {
@@ -64,17 +56,17 @@
 .mouseInstruction {
 	width: 100%;
 	margin-top: 10px;
-	/* border: 10px black !important; */
 	display: flex;
-	justify-content: center;
+	align-items: center;
 }
 
 .mouseInstruction p {
-	font-size: 10px;
-	margin-left: 7px;
+	font-size: 12px;
+	margin-left: 10px;
 }
 
 .mouseInstruction img {
+	flex-shrink: 0;
 	height: 50px;
 	width: 30px;
 }
@@ -82,11 +74,12 @@
 .nodeInstruction {
 	display: flex;
 	flex-direction: row;
-	margin-top: 10px;
+	margin-top: 8px;
 	align-items: center;
 }
 
 .nodeInstruction .box {
+	flex-shrink: 0;
 	width: 20px;
 	height: 20px;
 	border: solid 2px black;
@@ -121,6 +114,45 @@
 }
 
 .nodeInstruction p {
-	font-size: 10px;
+	font-size: 12px;
 	margin-left: 10px;
+}
+
+/* Medium screens: instructions move below the grid */
+@media (max-width: 1200px) {
+	.instplusmain {
+		flex-direction: column;
+	}
+
+	.instructionBar {
+		flex: none;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		column-gap: 20px;
+	}
+
+	.instructionBar .aaa,
+	.instructionBar .colorr {
+		grid-column: 1 / -1;
+	}
+
+	.colorr {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	}
+}
+
+/* Small screens: everything stacks vertically */
+@media (max-width: 768px) {
+	.main {
+		flex-direction: column;
+	}
+
+	.instructionBar {
+		grid-template-columns: 1fr;
+	}
+
+	.mainbody {
+		padding: 0 10px 10px;
+	}
 }

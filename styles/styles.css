@@ -8,7 +8,9 @@
 
 body {
 	font-family: "Poppins", sans-serif;
-	height: auto;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 	background-color: rgb(18, 47, 72);
 }
 
@@ -16,13 +18,14 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: auto;
+	width: 100%;
+	padding: 0 20px 20px;
 	background-color: rgb(18, 47, 72);
 }
 
 footer {
-	margin-top: 10px;
-	margin-bottom: 5px;
+	margin-top: auto;
+	gap: 10px;
 	border-top: solid 3px turquoise;
 	border-bottom: solid 3px turquoise;
 	display: flex;
@@ -62,6 +65,16 @@ footer .projRepoClass {
 
 footer .projRepoClass h3 {
 	margin-right: 20px;
+}
+
+@media (max-width: 600px) {
+	footer .projRepoClass h3 {
+		margin-right: 10px;
+	}
+
+	footer h3 {
+		font-size: 13px;
+	}
 }
 
 footer h3 {

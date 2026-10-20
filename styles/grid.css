@@ -1,16 +1,28 @@
-#grid {
-	margin-bottom: 10px;
+.gridWrapper {
+	position: relative;
+	width: 100%;
+	max-width: 806px;
+	aspect-ratio: 2 / 1;
 	border: 3px solid turquoise;
+	background-color: white;
+}
+
+#grid,
+#grid-layer {
 	position: absolute;
-	top: 100px;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+#grid {
 	z-index: 0;
+	touch-action: none;
 }
 
 #grid-layer {
-	margin-bottom: 10px;
-	border: 3px solid turquoise;
-	position: absolute;
-	top: 100px;
 	z-index: 1;
 	pointer-events: none;
 }

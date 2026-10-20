@@ -33,13 +33,19 @@ window.addEventListener("load", () => {
 	let drawEnd = false;
 	let startNode = null;
 	let endNode = null;
-	selectAlgorithm.selectedIndex = -1;
+	selectAlgorithm.selectedIndex = 0;
 	visualizeBtn.disabled = true;
 	let [sNode, eNode] = gridFunc.pickRandStartAndEnd(ctx, cellList);
 	startNode = sNode;
 	endNode = eNode;
 	drawStart = true;
 	drawEnd = true;
+
+	// The canvas is scaled with CSS, so map the mouse position back to canvas pixels
+	const getEventCellPos = (e) => {
+		const scale = grid.width / grid.clientWidth;
+		return gridFunc.getCellPos(e.offsetX * scale, e.offsetY * scale, width, rows);
+	};
 
 	githubRepo.addEventListener("click", () => {
 		window.open("https://github.com/AryanDeswal/PathQuest");
@@ -52,7 +58,7 @@ window.addEventListener("load", () => {
 	};
 
 	grid.addEventListener("click", (e) => {
-		let [row, col] = gridFunc.getCellPos(e.offsetX, e.offsetY, width, rows);
+		let [row, col] = getEventCellPos(e);
 		let selectedNode = cellList[row][col];
 
 		if (e.button == 0) {
@@ -86,7 +92,7 @@ window.addEventListener("load", () => {
 	});
 
 	grid.addEventListener("mousemove", (e) => {
-		let [row, col] = gridFunc.getCellPos(e.offsetX, e.offsetY, width, rows);
+		let [row, col] = getEventCellPos(e);
 		try {
 			if (drawWall) {
 				gridFunc.drawWallNode(ctx, cellList, row, col);

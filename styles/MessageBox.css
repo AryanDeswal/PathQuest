@@ -3,12 +3,13 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	padding: 10px;
+	min-height: 70px;
+	padding: 10px 20px;
 }
 
 .messageBox .message {
 	color: aliceblue;
 	font-size: 15px;
-	/* width: 100%; */
+	max-width: 806px;
 	text-align: center;
 }
